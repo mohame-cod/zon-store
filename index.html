@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZON Store</title>
+    <link rel="icon" href="img/logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="ZON Store.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div id="storeView">
+
+<div class="top-bar">
+
+    <div class="left">
+        🚚 Free Shipping All Over Egypt
+    </div>
+
+    <div class="right">
+
+        <a href="https://www.instagram.com/zon.storee" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+        </a>
+
+        <a href="https://wa.me/201019301346" target="_blank" id="topbarWhatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+        </a>
+
+    </div>
+
+</div>
+
+<header id="siteHeader">
+
+    <div class="logo">
+        <img src="img/751111322_18121986478726335_2278087493976543914_n.jpg" alt="ZON Store logo">
+        <p class="logo-text">ZON <span>STORE</span></p>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav id="navMenu">
+        <a href="#">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#">Collections</a>
+        <a href="#">New</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+        <i class="fa-regular fa-heart" id="wishlistIcon"></i>
+        <span class="cart-wrap">
+            <i class="fa-solid fa-cart-shopping" id="cartIcon"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </span>
+    </div>
+
+</header>
+
+<div class="search-overlay" id="searchOverlay">
+    <i class="fa-solid fa-xmark search-close" id="searchClose"></i>
+    <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+</div>
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="badge">NEW COLLECTION 2026</span>
+
+        <h1>
+            ELEVATE <br>
+            YOUR STYLE
+        </h1>
+
+        <p>
+            Discover premium Box Fit & Oversized T-Shirts designed for confidence and comfort.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#shop" class="btn-primary">
+                Shop Now
+            </a>
+
+            <a href="#shop" class="btn-secondary">
+                Explore Collection
+            </a>
+
+        </div>
+
+        <div class="hero-info">
+
+            <div>
+                <h3>490 EGP</h3>
+                <span>Box Fit</span>
+            </div>
+
+            <div>
+                <h3>460 EGP</h3>
+                <span>Oversized</span>
+            </div>
+
+            <div>
+                <h3>Fast Shipping</h3>
+                <span>All Egypt</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image" data-aos="zoom-in-right" data-aos-duration="900">
+
+        <img src="img/751111322_18121986478726335_2278087493976543914_n.jpg" alt="Hero">
+
+    </div>
+
+</section>
+
+<section class="products" id="shop">
+
+    <h2>Featured Products</h2>
+
+    <div class="grid" id="productsGrid"></div>
+
+</section>
+
+<footer>
+
+    <div class="footer-logo">
+        <img src="img/751111322_18121986478726335_2278087493976543914_n.jpg" alt="ZON Store logo">
+        <h2>ZON STORE</h2>
+    </div>
+
+    <p>Premium Men's Fashion</p>
+
+    <div class="footer-links">
+
+        <a href="https://www.instagram.com/zon.storee" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+
+        <a href="https://wa.me/201019301346" target="_blank" id="footerWhatsapp">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a href="#" id="footerAdmin">
+            <i class="fa-solid fa-user-shield"></i> Admin
+        </a>
+
+    </div>
+
+    <p class="copyright">© 2026 ZON Store. All Rights Reserved.</p>
+
+</footer>
+
+<a href="https://wa.me/201019301346" class="whatsapp" target="_blank" id="floatingWhatsapp" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ===========================
+     CART DRAWER
+=========================== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-drawer-head">
+        <h3>Your Cart</h3>
+        <i class="fa-solid fa-xmark" id="cartClose"></i>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-drawer-foot">
+        <div class="cart-total-row">
+            <span>Total</span>
+            <span id="cartTotalPrice">0 EGP</span>
+        </div>
+        <button class="btn-primary" id="checkoutBtn">Checkout</button>
+    </div>
+
+</aside>
+
+<!-- ===========================
+     CHECKOUT MODAL
+=========================== -->
+<div class="checkout-overlay" id="checkoutOverlay">
+
+    <form class="checkout-box" id="checkoutForm">
+
+        <h3>Complete Your Order</h3>
+
+        <label>Full Name</label>
+        <input type="text" id="checkoutName" required>
+
+        <label>Phone Number</label>
+        <input type="tel" id="checkoutPhone" required>
+
+        <label>Address</label>
+        <input type="text" id="checkoutAddress" required>
+
+        <div class="checkout-summary" id="checkoutSummary"></div>
+
+        <div class="checkout-actions">
+            <button type="button" class="btn-secondary" id="checkoutCancel">Cancel</button>
+            <button type="submit" class="btn-primary">Place Order (COD)</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+</div><!-- END #storeView -->
+
+<!-- ===========================
+     ADMIN SECTION (نفس الملف)
+=========================== -->
+<div id="adminSection" style="display:none;">
+
+    <!-- LOGIN SCREEN -->
+    <section class="login-screen" id="loginScreen">
+
+        <form class="login-box" id="loginForm">
+
+            <div class="login-logo">
+                <img src="img/751111322_18121986478726335_2278087493976543914_n.jpg" alt="ZON Store logo">
+                <p>ZON <span>STORE</span></p>
+            </div>
+
+            <h2>Admin Login</h2>
+
+            <label>Username</label>
+            <input type="text" id="username" placeholder="admin" autocomplete="off" required>
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+
+            <p class="login-error" id="loginError">Wrong username or password</p>
+
+            <button type="submit" class="btn-login">Login</button>
+
+            <p class="login-hint">Demo credentials: admin / admin123</p>
+
+            <a href="#" id="backToStoreFromLogin" class="back-to-store-link">← Back to store</a>
+
+        </form>
+
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <div class="admin-wrap" id="adminWrap">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img src="img/751111322_18121986478726335_2278087493976543914_n.jpg" alt="ZON Store logo">
+                <p>ZON <span>STORE</span></p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-target="overview"><i class="fa-solid fa-chart-line"></i> Overview</a>
+                <a href="#" class="nav-link" data-target="products"><i class="fa-solid fa-shirt"></i> Products</a>
+                <a href="#" class="nav-link" data-target="orders"><i class="fa-solid fa-box"></i> Orders</a>
+                <a href="#" class="nav-link" data-target="customers"><i class="fa-solid fa-users"></i> Customers</a>
+                <a href="#" class="nav-link" data-target="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+
+            <a href="#" class="btn-view-store" id="viewStoreLink"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Store</a>
+
+            <button class="btn-logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+
+        </aside>
+
+        <main class="main-content">
+
+            <header class="main-header">
+                <button class="sidebar-toggle" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+                <h1 id="pageTitle">Overview</h1>
+                <div class="admin-profile">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <!-- OVERVIEW -->
+            <section class="page active" id="overview">
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <div>
+                            <h3 id="statSales">0 EGP</h3>
+                            <span>Total Sales</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-box"></i>
+                        <div>
+                            <h3 id="statOrders">0</h3>
+                            <span>Total Orders</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-shirt"></i>
+                        <div>
+                            <h3 id="statProducts">0</h3>
+                            <span>Products</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-users"></i>
+                        <div>
+                            <h3 id="statCustomers">0</h3>
+                            <span>Customers</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="recent-orders">
+                    <h2>Recent Orders</h2>
+                    <table class="admin-table" id="recentOrdersTable">
+                        <thead>
+                            <tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- PRODUCTS -->
+            <section class="page" id="products">
+
+                <div class="page-actions">
+                    <button class="btn-primary-admin" id="addProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="productsTable"></tbody>
+                </table>
+
+            </section>
+
+            <!-- ORDERS -->
+            <section class="page" id="orders">
+
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Order ID</th><th>Customer</th><th>Products</th><th>Total</th><th>Status</th></tr>
+                    </thead>
+                    <tbody id="ordersTable"></tbody>
+                </table>
+
+            </section>
+
+            <!-- CUSTOMERS -->
+            <section class="page" id="customers">
+
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Name</th><th>Phone</th><th>Orders</th><th>Total Spent</th></tr>
+                    </thead>
+                    <tbody id="customersTable"></tbody>
+                </table>
+
+            </section>
+
+            <!-- SETTINGS -->
+            <section class="page" id="settings">
+
+                <div class="settings-box">
+                    <h2>Store Settings</h2>
+
+                    <label>Store Name</label>
+                    <input type="text" id="settingStoreName" value="ZON Store">
+
+                    <label>WhatsApp Number</label>
+                    <input type="text" id="settingWhatsapp" value="+20 101 930 1346">
+
+                    <label>Free Shipping (Cairo & Giza)</label>
+                    <select id="settingFreeShipping">
+                        <option value="yes">Enabled</option>
+                        <option value="no">Disabled</option>
+                    </select>
+
+                    <button class="btn-primary-admin" id="saveSettingsBtn">Save Changes</button>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ADD / EDIT PRODUCT MODAL -->
+    <div class="modal-overlay" id="productModal">
+
+        <form class="modal-box" id="productForm">
+
+            <h2 id="modalTitle">Add Product</h2>
+
+            <input type="hidden" id="productId">
+
+            <label>Product Name</label>
+            <input type="text" id="productName" required>
+
+            <label>Category</label>
+            <select id="productCategory">
+                <option value="Box Fit">Box Fit</option>
+                <option value="Oversized">Oversized</option>
+            </select>
+
+            <label>Price (EGP)</label>
+            <input type="number" id="productPrice" required>
+
+            <label>Stock</label>
+            <input type="number" id="productStock" required>
+
+            <label>Product Image</label>
+            <input type="file" id="productImageFile" accept="image/*">
+            <input type="hidden" id="productImage">
+            <img id="productImagePreview" class="modal-img-preview" style="display:none;">
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary-admin" id="cancelModalBtn">Cancel</button>
+                <button type="submit" class="btn-primary-admin">Save</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="toast" id="adminToast"></div>
+
+</div><!-- END #adminSection -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="ZON Store.js"></script>
+<script src="admin.js"></script>
+<script>
+// ===========================
+// التبديل بين واجهة المتجر وواجهة الأدمن في نفس الصفحة
+// ===========================
+const storeView = document.getElementById('storeView');
+const adminSection = document.getElementById('adminSection');
+
+function showAdminView(){
+    storeView.style.display = 'none';
+    adminSection.style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function showStoreViewPage(){
+    adminSection.style.display = 'none';
+    storeView.style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+document.getElementById('footerAdmin').addEventListener('click', (e) => {
+    e.preventDefault();
+    showAdminView();
+});
+
+document.getElementById('viewStoreLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    showStoreViewPage();
+});
+
+document.getElementById('backToStoreFromLogin').addEventListener('click', (e) => {
+    e.preventDefault();
+    showStoreViewPage();
+});
+</script>
+</body>
+</html>
